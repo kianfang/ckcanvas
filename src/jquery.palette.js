@@ -1,5 +1,6 @@
 $(function() {
     var $palette = $("#palette"),
+        $lineWidth = $("#lineWidth"),
         canvas = $("#palette>canvas")[0],
         winH = $(window).height(),
         winW = $(window).width()
@@ -25,8 +26,6 @@ $(function() {
         mouseenter = false
     ;
 
-    c.strokeStyle = '#666666';
-    c.lineWidth = 3;
     c.lineCap = 'round';
     c.lineJoin = 'round';
 
@@ -54,6 +53,16 @@ $(function() {
         }
 
     });
+
+    $lineWidth.on("change", function(e) {
+        c.lineWidth = parseInt($(this).val());
+    }).trigger("change");
+
+    $("input[name='fill_style']").on("change", function(e) {
+        var $obj = $("input[name='fill_style']:checked");
+        $obj.parent("label").addClass("active").siblings("label").removeClass("active");
+        c.strokeStyle = c.fillStyle = $obj.val();
+    }).trigger("change");
 
     $(document).on("mouseup", function(e) {
         mousedown = false;

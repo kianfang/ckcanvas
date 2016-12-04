@@ -12,9 +12,35 @@
 <body>
 
 <div class="container">
-    <ul id="paletteTools">
-    </ul>
     <div id="palette" class="transparent"></div>
+    <ul id="toolsPanel">
+        <li id="colorList">
+            <label class="bg-black"><input type="radio" name="fill_style" value="#000000" checked></label>
+            <label class="bg-white"><input type="radio" name="fill_style" value="#ffffff"></label>
+            <label class="bg-red"><input type="radio" name="fill_style" value="#ff0000"></label>
+            <label class="bg-yellow"><input type="radio" name="fill_style" value="#ffff00"></label>
+            <label class="bg-green"><input type="radio" name="fill_style" value="#00ff00"></label>
+            <label class="bg-blue"><input type="radio" name="fill_style" value="#0000ff"></label>
+        </li>
+    </ul>
+    <ul id="editPanel">
+        <li>
+            <label>
+                <span>画笔大小：</span>
+                <select name="line_width" id="lineWidth">
+                    <option value="1.5">2</option>
+                    <option value="3.5">4</option>
+                    <option value="5.5">6</option>
+                    <option value="7.5">8</option>
+                    <option value="9.5" selected>10</option>
+                    <option value="11.5">12</option>
+                    <option value="15.5">16</option>
+                    <option value="19.5">20</option>
+                    <option value="23.5">24</option>
+                </select>
+            </label>
+        </li>
+    </ul>
 </div>
 
 

@@ -1,6 +1,14 @@
-body, div {
+body, div, ul, ol{
     margin: 0;
     padding: 0;
+}
+
+ul,ol {
+    list-style: none;
+}
+
+label {
+    cursor: pointer;
 }
 
 .container {
@@ -9,6 +17,25 @@ body, div {
     height: 100%;
     top: 0;
     left: 0;
+}
+
+.bg-red {
+    background-color: #FF0000;
+}
+.bg-yellow {
+    background-color: #FFFF00;
+}
+.bg-green {
+    background-color: #00FF00;
+}
+.bg-blue {
+    background-color: #0000FF;
+}
+.bg-black {
+    background-color: #000000;
+}
+.bg-white {
+    background-color: #FFFFFF;
 }
 
 #palette{
@@ -52,4 +79,38 @@ body, div {
     top: 0;
     left: 0;
     cursor: cell;
+}
+
+/*工具面板*/
+#toolsPanel {
+    position: absolute;
+    top: 40px;
+}
+
+#colorList {
+
+}
+
+#colorList>label {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #bbbbbb;
+    box-sizing: border-box;
+}
+
+#colorList>label.active, #colorList>label:hover {
+    box-shadow: 0 0 10px rgba(80, 80, 80, 0.85) inset;
+    border-width: 2px;
+    border-color: rgb(40, 231, 207);
+}
+
+#colorList>label>input {
+    visibility: hidden;
+}
+
+/*编辑面板*/
+#editPanel {
+    position: absolute;
+    left: 40px;
 }
