@@ -13,7 +13,7 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            app: ['Gruntfile.js', './src/**/*.js']
+            app: ['Gruntfile.js', './src/**.js']
         },
         copy: {
             jquery: {
@@ -31,6 +31,10 @@ module.exports = function(grunt) {
             jquery: {
                 files: ['./bower_components/jquery*/dist/jquery.min.js'], // jquery 监听
                 tasks: ['copy:jquery']
+            },
+            palette: {
+                files: ['./src/jquery.palette.js'],
+                tasks: ['jshint', 'uglify']
             }
         }
     });
@@ -43,6 +47,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     // 默认被执行的任务列表。
 
-    grunt.registerTask('default', [/*'concat', */'uglify', 'jshint', 'copy']);
+    grunt.registerTask('default', ['copy', 'jshint', 'uglify']);
 
 };

@@ -1,2 +1,2 @@
-# ckcanvas
-ck canvas, a html5 drawing board.
+# jquery.palette
+html5 drawing board
