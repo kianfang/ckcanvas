@@ -1,0 +1,34 @@
+{
+    "name": "jquery.palette",
+    "version": "1.0.0",
+    "description": "html5 drawing board",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/waiwaiku/query.palette.git"
+    },
+    "keywords": [
+        "canvas",
+        "jquery palette",
+        "palette"
+    ],
+    "author": "kian",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/waiwaiku/ckcanvas/issues"
+    },
+    "homepage": "https://github.com/waiwaiku/ckcanvas#readme",
+
+    "devDependencies": {
+        "grunt": "^1.0.1",
+        "grunt-contrib-concat": "^1.0.1",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-cssmin": "^1.0.1",
+        "grunt-contrib-jshint": "^1.0.0",
+        "grunt-contrib-uglify": "^2.0.0",
+        "grunt-contrib-watch": "^1.0.0"
+    }
+}
