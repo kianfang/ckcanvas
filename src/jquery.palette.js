@@ -64,9 +64,32 @@ $(function() {
         c.strokeStyle = c.fillStyle = $obj.val();
     }).trigger("change");
 
+    var cacheHistory = [c.getImageData(0, 0, $canvas.attr("width"), $canvas.attr("height"))];
+    var historyIndex = 1;
     $(document).on("mouseup", function(e) {
+        if(mousedown){
+            // 存储历史记录
+
+            cacheHistory = cacheHistory.slice(0, historyIndex);
+
+            var imageData = c.getImageData(0, 0, $canvas.attr("width"), $canvas.attr("height"));
+            cacheHistory.push(imageData);
+            historyIndex++;
+            console.log(cacheHistory);
+        }
         mousedown = false;
         mouseup = true;
+    });
+
+    $("#prevHistory").on("click", function(e) {
+        historyIndex--;
+        if(historyIndex < 1)  historyIndex = 1;
+        c.putImageData(cacheHistory[historyIndex - 1], 0, 0);
+    });
+    $("#nextHistory").on("click", function(e) {
+        historyIndex++;
+        if(historyIndex > cacheHistory.length)  historyIndex = cacheHistory.length;
+        c.putImageData(cacheHistory[historyIndex - 1], 0, 0);
     });
 
 });

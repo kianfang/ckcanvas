@@ -38,10 +38,10 @@ label {
     background-color: #FFFFFF;
 }
 
-#palette{
+#palette {
     display: block;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 720px;
     position: absolute;
     top: 0;
     left: 0;
@@ -109,8 +109,23 @@ label {
     visibility: hidden;
 }
 
-/*编辑面板*/
+/* 编辑面板 */
 #editPanel {
     position: absolute;
+    top: 40px;
     left: 40px;
+}
+
+/* 控制面板 */
+#controlPanel {
+    position: absolute;
+    top: 0;
+    left: 40px;
+    height: 40px;
+    white-space: nowrap;
+}
+
+#controlPanel li{
+    display: inline-block;
+    height: 40px;
 }
