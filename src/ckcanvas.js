@@ -1,18 +1,18 @@
 $(function() {
-    var $palette = $("#palette"),
+    var $ckcanvas = $("#ckcanvas"),
         $lineWidth = $("#lineWidth"),
-        canvas = $("#palette>canvas")[0],
+        canvas = $("#ckcanvas>canvas")[0],
         winH = $(window).height(),
         winW = $(window).width()
     ;
 
     var $canvas = $("<canvas>").attr({
-        width: $palette.width(),
-        height: $palette.height()
+        width: $ckcanvas.width(),
+        height: $ckcanvas.height()
     });
 
     var $mask = $("<div>").addClass("mask");
-    $palette.append($canvas, $mask);
+    $ckcanvas.append($canvas, $mask);
 
     var c = $canvas.get(0).getContext('2d');
 
@@ -58,12 +58,6 @@ $(function() {
         c.lineWidth = parseInt($(this).val());
     }).trigger("change");
 
-    $("input[name='fill_style']").on("change", function(e) {
-        var $obj = $("input[name='fill_style']:checked");
-        $obj.parent("label").addClass("active").siblings("label").removeClass("active");
-        c.strokeStyle = c.fillStyle = $obj.val();
-    }).trigger("change");
-
     var cacheHistory = [c.getImageData(0, 0, $canvas.attr("width"), $canvas.attr("height"))];
     var historyIndex = 1;
     $(document).on("mouseup", function(e) {
@@ -81,11 +75,19 @@ $(function() {
         mouseup = true;
     });
 
+    // 颜色拾取
+    $("#colorPicker>label").palette({}, function(data) {
+        c.strokeStyle = c.fillStyle = data.rgba;
+    });
+
+    // 历史后退
     $("#prevHistory").on("click", function(e) {
         historyIndex--;
         if(historyIndex < 1)  historyIndex = 1;
         c.putImageData(cacheHistory[historyIndex - 1], 0, 0);
     });
+
+    // 历史前进
     $("#nextHistory").on("click", function(e) {
         historyIndex++;
         if(historyIndex > cacheHistory.length)  historyIndex = cacheHistory.length;

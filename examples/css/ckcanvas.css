@@ -38,7 +38,7 @@ label {
     background-color: #FFFFFF;
 }
 
-#palette {
+#ckcanvas {
     display: block;
     width: 600px;
     height: 720px;
@@ -62,7 +62,7 @@ label {
     background-position: 0 0, 20px 20px;
 }
 
-#palette>canvas {
+#ckcanvas>canvas {
     display: block;
     position: absolute;
     top: 0;
@@ -70,7 +70,7 @@ label {
     box-shadow: 0 0 2px #aaa;
 }
 
-#palette>div.mask {
+#ckcanvas>div.mask {
     background-color: transparent;
     display: block;
     width: 100%;
@@ -84,7 +84,15 @@ label {
 /*工具面板*/
 #toolsPanel {
     position: absolute;
-    top: 40px;
+    top: 80px;
+}
+
+#toolsPanel>li>label{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #bbbbbb;
+    box-sizing: border-box;
 }
 
 #colorList {
@@ -92,11 +100,7 @@ label {
 }
 
 #colorList>label {
-    display: block;
-    width: 40px;
-    height: 40px;
-    border: 1px solid #bbbbbb;
-    box-sizing: border-box;
+
 }
 
 #colorList>label.active, #colorList>label:hover {

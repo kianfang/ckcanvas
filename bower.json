@@ -21,6 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "ckpalette": "https://github.com/waiwaiku/ckpalette.git"
   }
 }

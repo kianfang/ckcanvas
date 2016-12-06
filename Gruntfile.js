@@ -8,7 +8,7 @@ module.exports = function(grunt) {
             },
             app: {
                 files: {
-                    './dist/jquery.palette.min.js': './src/jquery.palette.js'
+                    './dist/ckcanvas.min.js': './src/ckcanvas.js'
                 }
             }
         },
@@ -17,14 +17,36 @@ module.exports = function(grunt) {
         },
         copy: {
             jquery: {
-                files: [{ //jquery1、2、3
-                    expand: true,
-                    flatten: false,
-                    cwd: './bower_components/jquery/dist/',
-                    src: ['jquery.min.js'],
-                    dest: './examples/js/',
-                    filter: 'isFile',
-                }]
+                files: [
+                    {
+                        expand: true,
+                        flatten: false,
+                        cwd: './bower_components/jquery/dist/',
+                        src: ['jquery.min.js'],
+                        dest: './examples/js/',
+                        filter: 'isFile',
+                    }
+                ]
+            },
+            palette: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: false,
+                        cwd: './bower_components/ckpalette/',
+                        src: ['ckpalette.js'],
+                        dest: './examples/js/',
+                        filter: 'isFile',
+                    },
+                    {
+                        expand: true,
+                        flatten: false,
+                        cwd: './bower_components/ckpalette/',
+                        src: ['ckpalette.css'],
+                        dest: './examples/css/',
+                        filter: 'isFile',
+                    }
+                ]
             }
         },
         watch: {
@@ -32,8 +54,8 @@ module.exports = function(grunt) {
                 files: ['./bower_components/jquery*/dist/jquery.min.js'], // jquery 监听
                 tasks: ['copy:jquery']
             },
-            palette: {
-                files: ['./src/jquery.palette.js'],
+            ckcanvas: {
+                files: ['./src/ckcanvas.js'],
                 tasks: ['jshint', 'uglify']
             }
         }
