@@ -1,2 +1,2 @@
-# jquery.palette
+# ckcanvas
 html5 drawing board
